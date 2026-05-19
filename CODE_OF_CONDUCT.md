@@ -1,6 +1,6 @@
 # Code of Conduct
 
-AV Sync Lab should be useful to people who are trying to solve a
+AVSync should be useful to people who are trying to solve a
 media-sync problem, regardless of background or experience level.
 
 ## Expected behavior

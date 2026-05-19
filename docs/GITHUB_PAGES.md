@@ -1,6 +1,6 @@
 # GitHub Pages Hosting
 
-AV Sync Lab can run on GitHub Pages as a static site. The app serves its own
+AVSync can run on GitHub Pages as a static site. The app serves its own
 HTML, CSS, JavaScript, icon, manifest, robots file, and small FFmpeg wrapper
 files from `public/`.
 

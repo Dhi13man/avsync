@@ -1,6 +1,6 @@
 # Contributing
 
-Thanks for helping improve AV Sync Lab. The project is intentionally
+Thanks for helping improve AVSync. The project is intentionally
 small: plain HTML, CSS, browser JavaScript, and a Node static server.
 
 By participating, you agree to follow the [Code of Conduct](CODE_OF_CONDUCT.md).
@@ -25,7 +25,7 @@ npm start
 Expected server output:
 
 ```text
-AV Sync Lab running at http://127.0.0.1:5177
+AVSync running at http://127.0.0.1:5177
 ```
 
 Open <http://127.0.0.1:5177>.

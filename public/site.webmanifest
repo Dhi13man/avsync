@@ -1,7 +1,7 @@
 {
-  "name": "AV Sync Lab",
-  "short_name": "AV Sync Lab",
-  "description": "Audio Video Sync Lab syncs external audio to video in the browser with spectrogram alignment and FFmpeg WASM export.",
+  "name": "AVSync",
+  "short_name": "AVSync",
+  "description": "AVSync syncs external audio to video in the browser with spectrogram alignment and FFmpeg WASM export.",
   "start_url": "./",
   "display": "standalone",
   "background_color": "#f3f2ed",

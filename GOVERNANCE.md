@@ -1,6 +1,6 @@
 # Governance
 
-AV Sync Lab uses a maintainer-led governance model.
+AVSync uses a maintainer-led governance model.
 
 ## Roles
 

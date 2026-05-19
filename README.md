@@ -1,4 +1,4 @@
-# AV Sync Lab
+# AVSync
 
 > Browser-based audio video sync tool for aligning external audio with video,
 > previewing the result, and exporting a synced MP4 locally.
@@ -9,11 +9,11 @@
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
 [![Code of Conduct](https://img.shields.io/badge/code%20of%20conduct-active-purple)](CODE_OF_CONDUCT.md)
 
-AV Sync Lab is the short name for Audio Video Sync Lab: a local-first browser
-tool that helps you fit an external clean audio track to a video. Load both
-files, decode their audio, inspect aligned spectrograms, choose or nudge an
-offset, preview the result, and render a video with the original video stream
-plus the replacement audio. User media stays on your machine.
+AVSync is a local-first browser tool that helps you fit an external clean audio
+track to a video. Load both files, decode their audio, inspect aligned
+spectrograms, choose or nudge an offset, preview the result, and render a video
+with the original video stream plus the replacement audio. User media stays on
+your machine.
 
 ## Features
 
@@ -45,7 +45,7 @@ npm start
 Expected output:
 
 ```text
-AV Sync Lab running at http://127.0.0.1:5177
+AVSync running at http://127.0.0.1:5177
 ```
 
 Open <http://127.0.0.1:5177>.

@@ -1,6 +1,6 @@
 # Changelog
 
-All notable changes to AV Sync Lab are documented in this file.
+All notable changes to AVSync are documented in this file.
 
 The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project follows [Semantic Versioning](https://semver.org/).
@@ -16,8 +16,8 @@ and this project follows [Semantic Versioning](https://semver.org/).
 ### Changed
 
 - Package metadata now declares MIT licensing and public package intent.
-- Product surfaces now use the AV Sync Lab brand with search-friendly Audio
-  Video Sync Lab metadata.
+- Product surfaces now use the AVSync brand with search-friendly audio video
+  sync metadata.
 - GitHub Pages deployment workflow and static-host FFmpeg loading path.
 
 ## [0.1.0] - 2026-05-20

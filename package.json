@@ -6,6 +6,7 @@
   "description": "Browser-based audio video sync tool for aligning external audio tracks with video using spectrograms, frame-precise preview, and FFmpeg WASM export.",
   "license": "MIT",
   "keywords": [
+    "avsync",
     "audio",
     "video",
     "sync",

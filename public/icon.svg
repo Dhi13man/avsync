@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title desc">
-  <title id="title">AV Sync Lab icon</title>
+  <title id="title">AVSync icon</title>
   <desc id="desc">A waveform line crossing a dark rounded square.</desc>
   <rect width="64" height="64" rx="14" fill="#1b2d35"/>
   <path d="M14 40h8l4-18 7 28 5-20h12" fill="none" stroke="#66d3c6" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
