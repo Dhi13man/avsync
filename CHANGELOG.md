@@ -1,6 +1,6 @@
 # Changelog
 
-All notable changes to Audio Video Sync Lab are documented in this file.
+All notable changes to AV Sync Lab are documented in this file.
 
 The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project follows [Semantic Versioning](https://semver.org/).
@@ -16,6 +16,8 @@ and this project follows [Semantic Versioning](https://semver.org/).
 ### Changed
 
 - Package metadata now declares MIT licensing and public package intent.
+- Product surfaces now use the AV Sync Lab brand with search-friendly Audio
+  Video Sync Lab metadata.
 
 ## [0.1.0] - 2026-05-20
 

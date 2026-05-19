@@ -1,7 +1,7 @@
-# Audio Video Sync Lab
+# AV Sync Lab
 
-> Local-first browser tool for replacing noisy video audio with a clean track,
-> aligning it visually and by ear, then exporting a synced MP4.
+> Browser-based audio video sync tool for aligning external audio with video,
+> previewing the result, and exporting a synced MP4 locally.
 
 [![CI](https://github.com/Dhi13man/audio-video-sync-lab/actions/workflows/ci.yml/badge.svg)](https://github.com/Dhi13man/audio-video-sync-lab/actions/workflows/ci.yml)
 [![Node](https://img.shields.io/badge/node-%3E%3D18-339933?logo=node.js&logoColor=white)](https://nodejs.org)
@@ -9,10 +9,11 @@
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
 [![Code of Conduct](https://img.shields.io/badge/code%20of%20conduct-active-purple)](CODE_OF_CONDUCT.md)
 
-Audio Video Sync Lab helps you fit an external clean audio track to a video.
-Load both files, decode their audio, inspect aligned spectrograms, choose or
-nudge an offset, preview the result, and render a video with the original video
-stream plus the replacement audio. User media stays on your machine.
+AV Sync Lab is the short name for Audio Video Sync Lab: a local-first browser
+tool that helps you fit an external clean audio track to a video. Load both
+files, decode their audio, inspect aligned spectrograms, choose or nudge an
+offset, preview the result, and render a video with the original video stream
+plus the replacement audio. User media stays on your machine.
 
 ## Features
 
@@ -44,7 +45,7 @@ npm start
 Expected output:
 
 ```text
-Audio Video Sync Lab running at http://127.0.0.1:5177
+AV Sync Lab running at http://127.0.0.1:5177
 ```
 
 Open <http://127.0.0.1:5177>.

@@ -10,7 +10,7 @@ This checklist keeps releases repeatable while the project is small.
 
 ## Versioning
 
-Audio Video Sync Lab follows Semantic Versioning:
+AV Sync Lab follows Semantic Versioning:
 
 - `PATCH`: bug fixes, documentation updates, small UI corrections.
 - `MINOR`: new user-facing features that do not break existing workflows.

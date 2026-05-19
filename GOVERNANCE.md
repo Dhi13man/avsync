@@ -1,6 +1,6 @@
 # Governance
 
-Audio Video Sync Lab uses a maintainer-led governance model.
+AV Sync Lab uses a maintainer-led governance model.
 
 ## Roles
 

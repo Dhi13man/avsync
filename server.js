@@ -19,6 +19,9 @@ const types = new Map([
   [".css", "text/css; charset=utf-8"],
   [".js", "text/javascript; charset=utf-8"],
   [".json", "application/json; charset=utf-8"],
+  [".txt", "text/plain; charset=utf-8"],
+  [".webmanifest", "application/manifest+json; charset=utf-8"],
+  [".xml", "application/xml; charset=utf-8"],
   [".svg", "image/svg+xml"],
   [".wasm", "application/wasm"]
 ]);
@@ -98,5 +101,5 @@ const server = createServer(async (request, response) => {
 });
 
 server.listen(port, "127.0.0.1", () => {
-  console.log(`Audio Video Sync Lab running at http://127.0.0.1:${port}`);
+  console.log(`AV Sync Lab running at http://127.0.0.1:${port}`);
 });

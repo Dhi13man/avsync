@@ -4,16 +4,41 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="color-scheme" content="light dark">
-    <title>Audio Video Sync Lab</title>
-    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231b2d35'/%3E%3Cpath d='M14 40h8l4-18 7 28 5-20h12' fill='none' stroke='%2366d3c6' stroke-width='5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+    <meta name="description" content="Audio Video Sync Lab is a browser-based tool for syncing external audio to video with spectrogram alignment, frame-precise preview, and FFmpeg WASM export.">
+    <meta name="application-name" content="AV Sync Lab">
+    <meta name="author" content="Dhiman Seal">
+    <meta name="robots" content="index,follow">
+    <meta name="theme-color" content="#1b2d35">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="AV Sync Lab">
+    <meta property="og:title" content="Audio Video Sync Lab - Sync External Audio to Video in Your Browser">
+    <meta property="og:description" content="Align a clean external audio track with video locally using spectrograms, preview controls, and FFmpeg WASM export.">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Audio Video Sync Lab - Sync External Audio to Video">
+    <meta name="twitter:description" content="Browser-based audio video sync with spectrogram alignment and local MP4 export.">
+    <title>Audio Video Sync Lab - Sync External Audio to Video in Your Browser</title>
+    <link rel="icon" href="./icon.svg" type="image/svg+xml">
+    <link rel="manifest" href="./site.webmanifest">
     <link rel="stylesheet" href="./styles.css">
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "AV Sync Lab",
+        "alternateName": "Audio Video Sync Lab",
+        "applicationCategory": "MultimediaApplication",
+        "operatingSystem": "Any",
+        "description": "Browser-based audio video sync tool for aligning external audio tracks with video using spectrograms, preview controls, and FFmpeg WASM export.",
+        "license": "https://github.com/Dhi13man/audio-video-sync-lab/blob/main/LICENSE"
+      }
+    </script>
   </head>
   <body>
     <header class="topbar">
       <div class="brand">
         <span class="brand-mark" aria-hidden="true"></span>
         <div>
-          <h1>Audio Video Sync Lab</h1>
+          <h1>AV Sync Lab</h1>
           <p id="appStatus">Idle</p>
         </div>
       </div>
