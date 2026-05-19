@@ -1,5 +1,5 @@
 {
-  "name": "audio-video-sync-lab",
+  "name": "avsync",
   "version": "0.1.0",
   "private": false,
   "type": "module",
@@ -20,13 +20,13 @@
     "web-audio",
     "browser-tool"
   ],
-  "homepage": "https://github.com/Dhi13man/audio-video-sync-lab#readme",
+  "homepage": "https://github.com/Dhi13man/avsync#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Dhi13man/audio-video-sync-lab.git"
+    "url": "git+https://github.com/Dhi13man/avsync.git"
   },
   "bugs": {
-    "url": "https://github.com/Dhi13man/audio-video-sync-lab/issues"
+    "url": "https://github.com/Dhi13man/avsync/issues"
   },
   "author": "Dhiman Seal",
   "scripts": {

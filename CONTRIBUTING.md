@@ -16,8 +16,8 @@ By participating, you agree to follow the [Code of Conduct](CODE_OF_CONDUCT.md).
 ## Development setup
 
 ```bash
-git clone https://github.com/Dhi13man/audio-video-sync-lab.git
-cd audio-video-sync-lab
+git clone https://github.com/Dhi13man/avsync.git
+cd avsync
 npm install
 npm start
 ```

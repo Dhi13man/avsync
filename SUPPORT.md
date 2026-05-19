@@ -6,9 +6,9 @@ This project is maintained as an open-source browser tool.
 
 | Need | Use |
 | ---- | --- |
-| Bug with clear reproduction steps | [Bug report](https://github.com/Dhi13man/audio-video-sync-lab/issues/new?template=bug_report.yml) |
-| Sync accuracy case or algorithm concern | [Sync accuracy report](https://github.com/Dhi13man/audio-video-sync-lab/issues/new?template=sync_accuracy.yml) |
-| Feature idea or workflow gap | [Feature request](https://github.com/Dhi13man/audio-video-sync-lab/issues/new?template=feature_request.yml) |
+| Bug with clear reproduction steps | [Bug report](https://github.com/Dhi13man/avsync/issues/new?template=bug_report.yml) |
+| Sync accuracy case or algorithm concern | [Sync accuracy report](https://github.com/Dhi13man/avsync/issues/new?template=sync_accuracy.yml) |
+| Feature idea or workflow gap | [Feature request](https://github.com/Dhi13man/avsync/issues/new?template=feature_request.yml) |
 | Security-sensitive report | [Security policy](SECURITY.md) |
 
 ## Before opening an issue

@@ -32,5 +32,5 @@ and this project follows [Semantic Versioning](https://semver.org/).
   audio with AAC.
 - Same-origin FFmpeg asset proxy for cross-origin isolation compatibility.
 
-[Unreleased]: https://github.com/Dhi13man/audio-video-sync-lab/compare/v0.1.0...HEAD
-[0.1.0]: https://github.com/Dhi13man/audio-video-sync-lab/releases/tag/v0.1.0
+[Unreleased]: https://github.com/Dhi13man/avsync/compare/v0.1.0...HEAD
+[0.1.0]: https://github.com/Dhi13man/avsync/releases/tag/v0.1.0

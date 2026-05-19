@@ -16,7 +16,7 @@ Manual deploys are available from the GitHub Actions **Pages** workflow.
 After the workflow finishes, the project site is available at:
 
 ```text
-https://dhi13man.github.io/audio-video-sync-lab/
+https://dhi13man.github.io/avsync/
 ```
 
 ## Custom domain

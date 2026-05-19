@@ -3,7 +3,7 @@
 > Browser-based audio video sync tool for aligning external audio with video,
 > previewing the result, and exporting a synced MP4 locally.
 
-[![CI](https://github.com/Dhi13man/audio-video-sync-lab/actions/workflows/ci.yml/badge.svg)](https://github.com/Dhi13man/audio-video-sync-lab/actions/workflows/ci.yml)
+[![CI](https://github.com/Dhi13man/avsync/actions/workflows/ci.yml/badge.svg)](https://github.com/Dhi13man/avsync/actions/workflows/ci.yml)
 [![Node](https://img.shields.io/badge/node-%3E%3D18-339933?logo=node.js&logoColor=white)](https://nodejs.org)
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
@@ -37,8 +37,8 @@ your machine.
 ## Quick start
 
 ```bash
-git clone https://github.com/Dhi13man/audio-video-sync-lab.git
-cd audio-video-sync-lab
+git clone https://github.com/Dhi13man/avsync.git
+cd avsync
 npm start
 ```
 
