@@ -5,7 +5,8 @@ const BAND_COUNT = 96;
 const CORE_VERSION = "0.12.10";
 const FFMPEG_VERSION = "0.12.10";
 const UTIL_VERSION = "0.12.1";
-const FFMPEG_VENDOR_PATH = "/vendor/ffmpeg";
+const FFMPEG_VENDOR_BASE_URL = new URL("./vendor/ffmpeg", import.meta.url).href.replace(/\/$/, "");
+const FFMPEG_CORE_CDN_BASE_URL = `https://cdn.jsdelivr.net/npm/@ffmpeg/core@${CORE_VERSION}/dist/umd`;
 const LOG_LINE_LIMIT = 200;
 
 const SPEC_COLOR_STOPS = [
@@ -313,9 +314,9 @@ async function loadFfmpeg() {
   setStatus("Loading FFmpeg WASM");
   dom.loadFfmpegButton.disabled = true;
 
-  const ffmpegBaseURL = `${FFMPEG_VENDOR_PATH}/ffmpeg/${FFMPEG_VERSION}/dist/esm`;
-  const utilBaseURL = `${FFMPEG_VENDOR_PATH}/util/${UTIL_VERSION}/dist/esm`;
-  const [{ FFmpeg }, { fetchFile }] = await Promise.all([
+  const ffmpegBaseURL = `${FFMPEG_VENDOR_BASE_URL}/ffmpeg/${FFMPEG_VERSION}/dist/esm`;
+  const utilBaseURL = `${FFMPEG_VENDOR_BASE_URL}/util/${UTIL_VERSION}/dist/esm`;
+  const [{ FFmpeg }, { fetchFile, toBlobURL }] = await Promise.all([
     import(`${ffmpegBaseURL}/index.js`),
     import(`${utilBaseURL}/index.js`)
   ]);
@@ -329,11 +330,14 @@ async function loadFfmpeg() {
     }
   });
 
-  const baseURL = `${FFMPEG_VENDOR_PATH}/core/${CORE_VERSION}/dist/esm`;
+  const [coreURL, wasmURL] = await Promise.all([
+    toBlobURL(`${FFMPEG_CORE_CDN_BASE_URL}/ffmpeg-core.js`, "text/javascript"),
+    toBlobURL(`${FFMPEG_CORE_CDN_BASE_URL}/ffmpeg-core.wasm`, "application/wasm")
+  ]);
   await ffmpeg.load({
     classWorkerURL: `${ffmpegBaseURL}/worker.js`,
-    coreURL: `${baseURL}/ffmpeg-core.js`,
-    wasmURL: `${baseURL}/ffmpeg-core.wasm`
+    coreURL,
+    wasmURL
   });
 
   state.ffmpeg = ffmpeg;

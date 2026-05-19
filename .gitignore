@@ -33,8 +33,13 @@ desktop.ini
 *.swo
 *~
 
-# Local FFmpeg vendor cache (server proxies on demand)
-public/vendor/
+# Local FFmpeg vendor cache (small wrapper files under public/vendor are tracked)
+!public/vendor/
+!public/vendor/ffmpeg/
+!public/vendor/ffmpeg/**
+!public/vendor/ffmpeg/**/dist/
+!public/vendor/ffmpeg/**/dist/**
+public/vendor/cache/
 
 # Temp / test artifacts
 *.tmp

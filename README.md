@@ -24,14 +24,14 @@ plus the replacement audio. User media stays on your machine.
   review.
 - Preview modes for clean audio, blended audio, and original video audio.
 - FFmpeg WASM export with `-c:v copy` and AAC replacement audio.
-- Cross-origin isolation headers and same-origin FFmpeg asset proxy.
+- Static-host-compatible FFmpeg worker loading for GitHub Pages.
 - Light and dark themes through native `color-scheme`.
 
 ## Prerequisites
 
 - Node.js 18 or later.
-- A recent Chromium, Firefox, or Safari build with `SharedArrayBuffer`,
-  WebAudio, Canvas2D, and Web Worker support.
+- A recent Chromium, Firefox, or Safari build with WebAudio, Canvas2D, Web
+  Worker, and WebAssembly support.
 - Network access to jsDelivr when FFmpeg WASM assets are first loaded.
 
 ## Quick start
@@ -99,9 +99,15 @@ markdown linting.
 | `public/index.html` | App shell, controls, and preview markup |
 | `public/styles.css` | CSS layers, layout, components, and responsive behavior |
 | `public/app.js` | Audio decode, spectrogram analysis, preview, and export logic |
-| `server.js` | Static server, isolation headers, and FFmpeg asset proxy |
+| `server.js` | Local static server, isolation headers, and FFmpeg asset fallback proxy |
 | `.github/` | Community files, issue templates, PR template, and CI |
 | `docs/RELEASE.md` | Release checklist |
+
+## Hosting
+
+The app can be deployed to GitHub Pages from the static files in `public/`.
+See [docs/GITHUB_PAGES.md](docs/GITHUB_PAGES.md) for the workflow, default
+project URL, and custom-domain setup.
 
 ## How it works
 
@@ -125,17 +131,16 @@ Important implementation details:
   after the video.
 - Dragging trim during playback reseeks the clean audio source so preview stays
   responsive.
-- The server sets COOP and COEP headers and proxies FFmpeg assets through
-  `/vendor/ffmpeg/*`, which keeps FFmpeg WASM worker loading same-origin.
+- Static hosts serve the FFmpeg wrapper worker from `public/vendor/`, while the
+  large FFmpeg WASM core is loaded through same-origin Blob URLs at runtime.
 
 ## Browser requirements
 
 | Capability | Requirement |
 | --- | --- |
-| Cross-origin isolation | Provided by the included Node server |
 | Audio APIs | WebAudio `decodeAudioData` and `AudioBufferSourceNode` |
 | Rendering APIs | Canvas2D and Web Workers |
-| FFmpeg export | SharedArrayBuffer-capable browser session |
+| FFmpeg export | WebAssembly-capable browser session and jsDelivr asset access |
 
 Large videos are constrained by browser memory and local I/O. For long or 4K
 media, use shorter test clips while tuning algorithm changes.
@@ -148,13 +153,18 @@ media, use shorter test clips while tuning algorithm changes.
 - [ ] DTW-based fine alignment as an alternative to fixed-tempo refinement.
 - [ ] Local project-state persistence.
 - [ ] Export presets for proxy, mezzanine, and deliverable workflows.
-- [ ] Optional vendored FFmpeg assets for fully offline use.
+- [ ] Optional vendored FFmpeg WASM core for fully offline use.
 
 ## Contributing
 
 Bug reports, feature suggestions, and pull requests are welcome. Read
 [CONTRIBUTING.md](CONTRIBUTING.md), [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md),
 and [SECURITY.md](SECURITY.md) before participating.
+
+## Third-party notices
+
+Vendored browser wrapper files are listed in
+[THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
 
 ## Changelog
 

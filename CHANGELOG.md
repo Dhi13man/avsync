@@ -18,6 +18,7 @@ and this project follows [Semantic Versioning](https://semver.org/).
 - Package metadata now declares MIT licensing and public package intent.
 - Product surfaces now use the AV Sync Lab brand with search-friendly Audio
   Video Sync Lab metadata.
+- GitHub Pages deployment workflow and static-host FFmpeg loading path.
 
 ## [0.1.0] - 2026-05-20
 

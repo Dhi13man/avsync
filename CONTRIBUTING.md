@@ -45,7 +45,7 @@ This runs JavaScript syntax checks and markdown linting.
 | `public/index.html` | App shell and controls |
 | `public/styles.css` | Layout, tokens, and component styles |
 | `public/app.js` | Audio analysis, sync controls, preview, and export |
-| `server.js` | Static server and FFmpeg asset proxy |
+| `server.js` | Local static server and FFmpeg asset fallback proxy |
 | `.github/` | Community templates and CI |
 
 ## Scope

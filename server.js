@@ -1,5 +1,5 @@
 import { createServer } from "node:http";
-import { createReadStream, statSync } from "node:fs";
+import { createReadStream, existsSync, statSync } from "node:fs";
 import { extname, join, resolve } from "node:path";
 import { Readable } from "node:stream";
 import { fileURLToPath } from "node:url";
@@ -19,6 +19,7 @@ const types = new Map([
   [".css", "text/css; charset=utf-8"],
   [".js", "text/javascript; charset=utf-8"],
   [".json", "application/json; charset=utf-8"],
+  [".mjs", "text/javascript; charset=utf-8"],
   [".txt", "text/plain; charset=utf-8"],
   [".webmanifest", "application/manifest+json; charset=utf-8"],
   [".xml", "application/xml; charset=utf-8"],
@@ -28,6 +29,11 @@ const types = new Map([
 
 async function proxyFfmpegAsset(pathname, response) {
   if (!pathname.startsWith(ffmpegProxyPrefix)) return false;
+
+  const localPath = resolve(publicDir, decodeURIComponent(pathname).replace(/^\/+/, ""));
+  if (localPath.startsWith(resolve(publicDir)) && existsSync(localPath)) {
+    return false;
+  }
 
   const [packageKey, version, ...assetParts] = pathname
     .slice(ffmpegProxyPrefix.length)
