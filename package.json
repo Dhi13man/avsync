@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": false,
   "type": "module",
-  "description": "Browser-based audio video sync tool for aligning external audio tracks with video using spectrograms, frame-precise preview, and FFmpeg WASM export.",
+  "description": "Browser-based audio-video sync tool for aligning external audio tracks with video using spectrograms, frame-precise preview, and FFmpeg WASM export.",
   "license": "MIT",
   "keywords": [
     "avsync",

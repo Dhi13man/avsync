@@ -16,7 +16,7 @@ and this project follows [Semantic Versioning](https://semver.org/).
 ### Changed
 
 - Package metadata now declares MIT licensing and public package intent.
-- Product surfaces now use the AVSync brand with search-friendly audio video
+- Product surfaces now use the AVSync brand with search-friendly audio-video
   sync metadata.
 - GitHub Pages deployment workflow and static-host FFmpeg loading path.
 

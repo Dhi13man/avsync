@@ -1,6 +1,6 @@
 # AVSync
 
-> Browser-based audio video sync tool for aligning external audio with video,
+> Browser-based audio-video sync tool for aligning external audio with video,
 > previewing the result, and exporting a synced MP4 locally.
 
 [![CI](https://github.com/Dhi13man/avsync/actions/workflows/ci.yml/badge.svg)](https://github.com/Dhi13man/avsync/actions/workflows/ci.yml)
@@ -9,11 +9,11 @@
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
 [![Code of Conduct](https://img.shields.io/badge/code%20of%20conduct-active-purple)](CODE_OF_CONDUCT.md)
 
-AVSync is a local-first browser tool that helps you fit an external clean audio
-track to a video. Load both files, decode their audio, inspect aligned
-spectrograms, choose or nudge an offset, preview the result, and render a video
-with the original video stream plus the replacement audio. User media stays on
-your machine.
+AVSync expands to audio-video sync in the places where clarity matters: it is a
+local-first browser tool that helps you fit an external clean audio track to a
+video. Load both files, decode their audio, inspect aligned spectrograms, choose
+or nudge an offset, preview the result, and render a video with the original
+video stream plus the replacement audio. User media stays on your machine.
 
 ## Features
 
