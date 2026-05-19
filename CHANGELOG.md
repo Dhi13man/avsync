@@ -19,6 +19,8 @@ and this project follows [Semantic Versioning](https://semver.org/).
 - Product surfaces now use the AVSync brand with search-friendly audio-video
   sync metadata.
 - GitHub Pages deployment workflow and static-host FFmpeg loading path.
+- Cloudflare Pages is now the primary custom-domain host, with production
+  response headers documented and configured in `public/_headers`.
 
 ## [0.1.0] - 2026-05-20
 

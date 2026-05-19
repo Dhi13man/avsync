@@ -1,13 +1,13 @@
-# GitHub Pages Hosting
+# GitHub Pages Fallback Hosting
 
-AVSync can run on GitHub Pages as a static site. The app serves its own
-HTML, CSS, JavaScript, icon, manifest, robots file, and small FFmpeg wrapper
-files from `public/`.
+AVSync can run on GitHub Pages as a static fallback. Cloudflare Pages is the
+primary production host for the custom domains because it can apply the
+`public/_headers` response headers needed by the browser FFmpeg path.
 
 ## Deployment
 
-The Pages workflow deploys `public/` whenever `main` changes. It also runs the
-same local validation as CI before publishing.
+The GitHub Pages workflow deploys `public/` whenever `main` changes. It also
+runs the same local validation as CI before publishing.
 
 Manual deploys are available from the GitHub Actions **Pages** workflow.
 
@@ -21,7 +21,10 @@ https://dhi13man.github.io/avsync/
 
 ## Custom domain
 
-To connect a custom domain:
+Custom domains should normally be connected through Cloudflare Pages instead.
+Only use the GitHub Pages custom-domain path if Cloudflare Pages is unavailable.
+
+To connect a custom domain directly to GitHub Pages:
 
 1. Add a repository variable named `PAGES_CUSTOM_DOMAIN` with the exact domain,
    such as `avsynclab.com` or `sync.example.com`.

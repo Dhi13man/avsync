@@ -24,7 +24,8 @@ video stream plus the replacement audio. User media stays on your machine.
   review.
 - Preview modes for clean audio, blended audio, and original video audio.
 - FFmpeg WASM export with `-c:v copy` and AAC replacement audio.
-- Static-host-compatible FFmpeg worker loading for GitHub Pages.
+- Static-host-compatible FFmpeg worker loading for Cloudflare Pages and
+  GitHub Pages.
 - Light and dark themes through native `color-scheme`.
 
 ## Prerequisites
@@ -105,9 +106,14 @@ markdown linting.
 
 ## Hosting
 
-The app can be deployed to GitHub Pages from the static files in `public/`.
-See [docs/GITHUB_PAGES.md](docs/GITHUB_PAGES.md) for the workflow, default
-project URL, and custom-domain setup.
+Cloudflare Pages is the primary production host for the custom domains. It
+publishes the static files in `public/`, applies `public/_headers`, and serves
+the canonical URL at <https://avsync.dhimanseal.com>. See
+[docs/CLOUDFLARE_PAGES.md](docs/CLOUDFLARE_PAGES.md).
+
+GitHub Pages remains available as a fallback at
+<https://dhi13man.github.io/avsync/>. See
+[docs/GITHUB_PAGES.md](docs/GITHUB_PAGES.md).
 
 ## How it works
 
