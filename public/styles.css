@@ -182,7 +182,8 @@
     min-inline-size: 0;
     min-block-size: 0;
     display: grid;
-    grid-template-rows: auto auto minmax(14rem, 1fr);
+    grid-template-columns: minmax(17rem, 23rem) minmax(0, 1fr);
+    grid-template-rows: auto minmax(0, 1fr);
     gap: var(--space-3);
     container-type: inline-size;
     container-name: workspace;
@@ -200,11 +201,24 @@
   }
 
   .viewer-cluster {
+    grid-column: 1;
+    grid-row: 1 / span 2;
     min-inline-size: 0;
+    min-block-size: 0;
     display: grid;
-    grid-template-columns: minmax(0, 1fr) minmax(9.5rem, 12rem);
-    align-items: stretch;
+    grid-template-rows: auto auto;
+    align-content: start;
     gap: var(--space-3);
+  }
+
+  .transport {
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+  .spectrogram-panel {
+    grid-column: 2;
+    grid-row: 2;
   }
 
   @media (max-width: 1180px) {
@@ -243,6 +257,33 @@
     .inspector {
       grid-template-columns: minmax(0, 1fr);
     }
+
+    .workspace {
+      grid-template-columns: minmax(0, 1fr);
+      grid-template-rows: auto auto minmax(20rem, 1fr);
+    }
+
+    .viewer-cluster {
+      grid-column: 1;
+      grid-row: 1;
+      grid-template-columns: minmax(0, 1fr) minmax(10rem, 14rem);
+      grid-template-rows: auto;
+      align-items: stretch;
+    }
+
+    .meter-panel {
+      grid-template-columns: minmax(0, 1fr);
+    }
+
+    .transport {
+      grid-column: 1;
+      grid-row: 2;
+    }
+
+    .spectrogram-panel {
+      grid-column: 1;
+      grid-row: 3;
+    }
   }
 
   @media (max-width: 760px) {
@@ -260,6 +301,10 @@
 
     .viewer-cluster {
       grid-template-columns: minmax(0, 1fr);
+    }
+
+    .meter-panel {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
     }
   }
 }
@@ -583,7 +628,7 @@
   .meter-panel {
     min-inline-size: 0;
     display: grid;
-    grid-template-rows: repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: var(--space-2);
   }
 
@@ -592,7 +637,7 @@
     display: grid;
     align-content: center;
     gap: var(--space-1);
-    padding: var(--space-2);
+    padding: var(--space-2) var(--space-3);
     border: 1px solid var(--color-line);
     border-radius: var(--radius-md);
     background: var(--color-panel);
@@ -661,9 +706,10 @@
   }
 
   .spectrogram-panel {
+    min-block-size: 0;
     display: grid;
     grid-template-rows: auto minmax(0, 1fr);
-    padding: var(--space-3);
+    padding: var(--space-3) var(--space-4);
   }
 
   .canvas-tools {
@@ -675,16 +721,16 @@
     min-block-size: 0;
     position: relative;
     display: grid;
-    grid-template-rows: minmax(5rem, 1fr) minmax(5rem, 1fr) minmax(3rem, 0.42fr);
+    grid-template-rows: minmax(0, 1fr) minmax(0, 1fr) 4rem;
     gap: var(--space-2);
   }
 
   .spectrogram-row {
     min-block-size: 0;
     display: grid;
-    grid-template-columns: 5.75rem minmax(0, 1fr);
+    grid-template-columns: 5.5rem minmax(0, 1fr);
     align-items: stretch;
-    gap: var(--space-2);
+    gap: var(--space-3);
   }
 
   .spectrogram-row > span {
@@ -699,10 +745,11 @@
   canvas {
     inline-size: 100%;
     block-size: 100%;
-    min-block-size: 3rem;
+    min-block-size: 3.5rem;
     border: 1px solid var(--color-line);
     border-radius: var(--radius-md);
     background: oklch(0.105 0.009 255);
+    box-shadow: inset 0 1px 0 oklch(1 0 0 / 0.04);
     touch-action: none;
   }
 
@@ -831,27 +878,33 @@
 
   .spectrogram-empty {
     position: absolute;
-    inset: 0;
-    display: grid;
-    place-items: center;
+    inset-block-start: var(--space-2);
+    inset-inline-end: var(--space-2);
+    max-inline-size: min(16rem, calc(100% - var(--space-4)));
+    display: flex;
+    align-items: center;
+    justify-content: center;
     gap: var(--space-2);
-    padding: var(--space-5);
+    padding: var(--space-2) var(--space-3);
     border: 1px solid var(--color-line);
     border-radius: var(--radius-md);
-    background: var(--color-panel-soft);
+    background: color-mix(in oklab, var(--color-panel) 88%, transparent);
     color: var(--color-muted);
-    text-align: center;
+    box-shadow: 0 0.5rem 1.5rem oklch(0 0 0 / 0.1);
     pointer-events: none;
   }
 
   .spectrogram-empty p {
-    max-inline-size: 28rem;
+    overflow: hidden;
     line-height: 1.45;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
 
   .spectrogram-empty svg {
-    inline-size: 2rem;
-    block-size: 2rem;
+    inline-size: 1rem;
+    block-size: 1rem;
+    flex: 0 0 auto;
     color: var(--color-accent);
   }
 
