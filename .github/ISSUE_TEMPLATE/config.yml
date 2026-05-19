@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Support and usage questions
+    url: https://github.com/Dhi13man/audio-video-sync-lab/discussions
+    about: Ask open-ended questions or discuss workflow ideas.
+  - name: Security report
+    url: https://github.com/Dhi13man/audio-video-sync-lab/security/policy
+    about: Report vulnerabilities privately.

@@ -1,0 +1,44 @@
+name: Sync accuracy report
+description: Report a mismatch between estimated and correct sync.
+title: "sync: "
+labels: ["sync-accuracy", "needs-triage"]
+body:
+  - type: markdown
+    attributes:
+      value: "Describe the media. Do not upload private or copyrighted files."
+  - type: input
+    id: estimate
+    attributes:
+      label: Estimated offset
+      placeholder: "+3.200s"
+    validations:
+      required: true
+  - type: input
+    id: expected
+    attributes:
+      label: Expected offset
+      placeholder: "-1.300s"
+    validations:
+      required: true
+  - type: dropdown
+    id: mode
+    attributes:
+      label: Analysis mode
+      options:
+        - Balanced
+        - Start
+        - Interior
+    validations:
+      required: true
+  - type: textarea
+    id: media
+    attributes:
+      label: Media description
+      description: Include duration, rough file size, source, codec, and any intro or silence details.
+    validations:
+      required: true
+  - type: textarea
+    id: notes
+    attributes:
+      label: Notes
+      description: Include screenshots, synthetic samples, or non-private repro material when possible.

@@ -1,0 +1,257 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="color-scheme" content="light dark">
+    <title>Audio Video Sync Lab</title>
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231b2d35'/%3E%3Cpath d='M14 40h8l4-18 7 28 5-20h12' fill='none' stroke='%2366d3c6' stroke-width='5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+    <link rel="stylesheet" href="./styles.css">
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="brand">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <div>
+          <h1>Audio Video Sync Lab</h1>
+          <p id="appStatus">Idle</p>
+        </div>
+      </div>
+      <div class="topbar-actions">
+        <span class="chip" id="isolationStatus">Headers pending</span>
+        <button class="ghost-button" id="loadFfmpegButton" type="button">
+          <i data-lucide="cpu"></i>
+          <span>Load FFmpeg</span>
+        </button>
+      </div>
+    </header>
+
+    <main class="app-shell">
+      <aside class="panel media-panel" aria-label="Media inputs">
+        <section class="panel-section">
+          <div class="section-heading">
+            <h2>Media</h2>
+            <span class="muted" id="mediaState">Empty</span>
+          </div>
+
+          <label class="drop-zone" for="videoInput" id="videoDrop">
+            <span class="drop-icon"><i data-lucide="file-video"></i></span>
+            <span>
+              <strong>Video file</strong>
+              <small id="videoMeta">No file selected</small>
+            </span>
+            <input id="videoInput" type="file" accept="video/*">
+          </label>
+
+          <label class="drop-zone" for="audioInput" id="audioDrop">
+            <span class="drop-icon"><i data-lucide="music-2"></i></span>
+            <span>
+              <strong>Clean track</strong>
+              <small id="audioMeta">No file selected</small>
+            </span>
+            <input id="audioInput" type="file" accept="audio/*,video/*">
+          </label>
+
+          <button class="primary-button full-width" id="decodeButton" type="button" disabled>
+            <i data-lucide="activity"></i>
+            <span>Decode Media</span>
+          </button>
+        </section>
+
+        <section class="panel-section">
+          <div class="section-heading">
+            <h2>Analyze</h2>
+            <span class="muted" id="analysisState">Waiting</span>
+          </div>
+
+          <div class="segmented" role="group" aria-label="Analysis mode">
+            <button class="segment active" data-mode="balanced" type="button" title="Balanced: equal weight across the timeline. Good default.">Balanced</button>
+            <button class="segment" data-mode="start" type="button" title="Start: emphasizes the first ~20s. Use when both tracks share a clear opening cue.">Start</button>
+            <button class="segment" data-mode="interior" type="button" title="Interior: ignores intros and outros. Use when only the middle should align.">Interior</button>
+          </div>
+          <button class="secondary-button full-width" id="estimateButton" type="button" disabled>
+            <i data-lucide="radar"></i>
+            <span>Estimate Match</span>
+          </button>
+
+          <button class="secondary-button full-width" id="refineTempoButton" type="button" disabled>
+            <i data-lucide="waves"></i>
+            <span>Refine Tempo</span>
+          </button>
+        </section>
+
+        <section class="panel-section candidates-section">
+          <div class="section-heading">
+            <h2>Candidates</h2>
+            <span class="muted" id="candidateCount">0</span>
+          </div>
+          <div class="candidate-list" id="candidateList">
+            <div class="empty-state">
+              <i data-lucide="list-filter"></i>
+              <p>No candidates</p>
+            </div>
+          </div>
+        </section>
+      </aside>
+
+      <section class="workspace" aria-label="Sync workspace">
+        <aside class="viewer-cluster" aria-label="Video reference">
+          <div class="video-frame">
+            <video id="videoPreview" playsinline preload="metadata"></video>
+            <div class="video-placeholder" id="videoPlaceholder">
+              <i data-lucide="film"></i>
+              <span>No video loaded</span>
+            </div>
+          </div>
+
+          <div class="meter-panel">
+            <div>
+              <span class="metric-label">Track start</span>
+              <strong id="trimMetric">0.000s</strong>
+            </div>
+            <div>
+              <span class="metric-label">Tempo</span>
+              <strong id="tempoMetric">1.0000</strong>
+            </div>
+            <div>
+              <span class="metric-label">Score</span>
+              <strong id="scoreMetric">-</strong>
+            </div>
+          </div>
+        </aside>
+
+        <div class="transport panel">
+          <button class="icon-button" id="playButton" type="button" disabled aria-label="Play preview">
+            <span class="icon-play"><i data-lucide="play"></i></span>
+            <span class="icon-pause"><i data-lucide="pause"></i></span>
+          </button>
+          <button class="icon-button" id="stopButton" type="button" disabled aria-label="Stop preview">
+            <i data-lucide="square"></i>
+          </button>
+          <div class="time-readout">
+            <span id="currentTime">0.000s</span>
+            <span id="durationTime">0.000s</span>
+          </div>
+          <input id="playheadSlider" type="range" min="0" max="0" step="0.001" value="0" disabled aria-label="Playhead">
+          <select id="previewMode" aria-label="Preview mode" title="Clean: hear the swapped track only. Blend: both, with original ducked. Original: untouched video audio.">
+            <option value="clean">Clean track</option>
+            <option value="blend">Blend</option>
+            <option value="original">Original video</option>
+          </select>
+        </div>
+
+        <div class="spectrogram-panel panel">
+          <div class="section-heading">
+            <h2>Spectrograms</h2>
+            <div class="canvas-tools">
+              <button class="ghost-button small" id="zoomOutButton" type="button" aria-label="Zoom spectrogram out">
+                <i data-lucide="zoom-out"></i>
+                <span>Out</span>
+              </button>
+              <button class="ghost-button small" id="zoomInButton" type="button" aria-label="Zoom spectrogram in">
+                <i data-lucide="zoom-in"></i>
+                <span>In</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="spectrogram-stack" id="spectrogramStack">
+            <div class="spectrogram-row">
+              <span>Video audio</span>
+              <canvas id="videoSpectrogram" width="1400" height="260"></canvas>
+            </div>
+            <div class="spectrogram-row">
+              <span>Selected track</span>
+              <canvas id="trackSpectrogram" width="1400" height="260"></canvas>
+            </div>
+            <div class="spectrogram-row overview-row">
+              <span>Full track</span>
+              <canvas id="trackOverview" width="1400" height="96"></canvas>
+            </div>
+            <div class="spectrogram-empty" id="spectrogramEmpty">
+              <i data-lucide="audio-waveform"></i>
+              <p>No decoded audio</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <aside class="panel inspector" aria-label="Sync controls">
+        <section class="panel-section">
+          <div class="section-heading">
+            <h2>Adjust</h2>
+            <button class="ghost-button small" id="resetButton" type="button">
+              <i data-lucide="rotate-ccw"></i>
+              <span>Reset</span>
+            </button>
+          </div>
+
+          <label class="control">
+            <span>Track start</span>
+            <input id="trimStartInput" type="number" min="0" step="0.001" value="0">
+          </label>
+          <input id="trimStartSlider" type="range" min="0" max="0" step="0.001" value="0" disabled aria-label="Track start">
+
+          <div class="nudge-grid" role="group" aria-label="Nudge track start">
+            <button type="button" data-nudge="-1" aria-label="Track start -1 second">-1s</button>
+            <button type="button" data-nudge="-0.1" aria-label="Track start -100 milliseconds">-100ms</button>
+            <button type="button" data-nudge="-0.033333" aria-label="Track start -1 frame">-1f</button>
+            <button type="button" data-nudge="0.033333" aria-label="Track start +1 frame">+1f</button>
+            <button type="button" data-nudge="0.1" aria-label="Track start +100 milliseconds">+100ms</button>
+            <button type="button" data-nudge="1" aria-label="Track start +1 second">+1s</button>
+          </div>
+          <label class="control">
+            <span>Tempo ratio</span>
+            <input id="tempoInput" type="number" min="0.95" max="1.05" step="0.0005" value="1">
+          </label>
+          <input id="tempoSlider" type="range" min="0.95" max="1.05" step="0.0005" value="1" aria-label="Tempo ratio">
+
+          <label class="control">
+            <span>Clean gain</span>
+            <input id="gainInput" type="number" min="0" max="1.5" step="0.01" value="0.95">
+          </label>
+          <input id="gainSlider" type="range" min="0" max="1.5" step="0.01" value="0.95" aria-label="Clean gain">
+        </section>
+
+        <section class="panel-section">
+          <div class="section-heading">
+            <h2>Loop</h2>
+            <label class="switch">
+              <input id="loopToggle" type="checkbox" aria-label="Loop playback between in and out points">
+              <span></span>
+            </label>
+          </div>
+          <div class="range-pair">
+            <label class="control">
+              <span>In</span>
+              <input id="loopInInput" type="number" min="0" step="0.001" value="0">
+            </label>
+            <label class="control">
+              <span>Out</span>
+              <input id="loopOutInput" type="number" min="0" step="0.001" value="0">
+            </label>
+          </div>
+        </section>
+
+        <section class="panel-section">
+          <div class="section-heading">
+            <h2>Export</h2>
+            <span class="muted" id="exportState">Idle</span>
+          </div>
+          <button class="primary-button full-width" id="renderButton" type="button" disabled>
+            <i data-lucide="download"></i>
+            <span>Render File</span>
+          </button>
+          <a class="download-link hidden" id="downloadLink" download="synced-output.mp4">
+            <i data-lucide="circle-check"></i>
+            <span>Save synced file</span>
+          </a>
+          <pre class="log" id="ffmpegLog" aria-live="polite"></pre>
+        </section>
+      </aside>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/lucide@0.468.0/dist/umd/lucide.min.js"></script>
+    <script type="module" src="./app.js"></script>
+  </body>
+</html>

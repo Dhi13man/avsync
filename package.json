@@ -1,0 +1,39 @@
+{
+  "name": "audio-video-sync-lab",
+  "version": "0.1.0",
+  "private": false,
+  "type": "module",
+  "description": "Browser tool for syncing an external audio track to a video. In-browser spectrogram analysis, frame-precise sync, FFmpeg WASM export.",
+  "license": "MIT",
+  "keywords": [
+    "audio",
+    "video",
+    "sync",
+    "spectrogram",
+    "ffmpeg",
+    "ffmpeg-wasm",
+    "web-audio",
+    "browser-tool"
+  ],
+  "homepage": "https://github.com/Dhi13man/audio-video-sync-lab#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Dhi13man/audio-video-sync-lab.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Dhi13man/audio-video-sync-lab/issues"
+  },
+  "author": "Dhiman Seal",
+  "scripts": {
+    "check": "npm run check:js && npm run lint:md",
+    "check:js": "node --check server.js && node --check public/app.js",
+    "lint:md": "markdownlint-cli2 \"**/*.md\" \"!node_modules\"",
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "devDependencies": {
+    "markdownlint-cli2": "^0.22.1"
+  }
+}
