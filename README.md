@@ -15,6 +15,14 @@ video. Load both files, decode their audio, inspect aligned spectrograms, choose
 or nudge an offset, preview the result, and render a video with the original
 video stream plus the replacement audio. User media stays on your machine.
 
+## Screenshots
+
+Screenshots use generated sample media; no user files are included in the repo.
+
+![AVSync workspace with sample media, candidates, trim controls, and spectrograms](docs/assets/screenshots/avsync-workspace.png)
+
+![AVSync spectrogram view with video audio, selected track, and full-track overview](docs/assets/screenshots/avsync-spectrograms.png)
+
 ## Features
 
 - Automatic alignment estimates from spectrogram feature correlation.

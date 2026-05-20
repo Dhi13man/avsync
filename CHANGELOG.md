@@ -12,6 +12,7 @@ and this project follows [Semantic Versioning](https://semver.org/).
 - Open-source release metadata, community guidelines, support policy, security
   policy, issue templates, pull request template, and release checklist.
 - Project validation scripts for JavaScript syntax checks and markdown linting.
+- README screenshots showing the workspace and spectrogram alignment flow.
 
 ### Changed
 
