@@ -19,9 +19,13 @@ video stream plus the replacement audio. User media stays on your machine.
 
 Screenshots use generated sample media; no user files are included in the repo.
 
-![AVSync workspace with sample media, candidates, trim controls, and spectrograms](docs/assets/screenshots/avsync-workspace.png)
+<p align="center">
+  <img src="docs/assets/screenshots/avsync-workspace.png" alt="AVSync workspace with sample media, candidates, trim controls, and spectrograms" width="100%">
+</p>
 
-![AVSync spectrogram view with video audio, selected track, and full-track overview](docs/assets/screenshots/avsync-spectrograms.png)
+<p align="center">
+  <img src="docs/assets/screenshots/avsync-spectrograms.png" alt="AVSync spectrogram view with video audio, selected track, and full-track overview" width="100%">
+</p>
 
 ## Features
 
