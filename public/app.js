@@ -6,7 +6,7 @@ const CORE_VERSION = "0.12.10";
 const FFMPEG_VERSION = "0.12.10";
 const UTIL_VERSION = "0.12.1";
 const FFMPEG_VENDOR_BASE_URL = new URL("./vendor/ffmpeg", import.meta.url).href.replace(/\/$/, "");
-const FFMPEG_CORE_CDN_BASE_URL = `https://cdn.jsdelivr.net/npm/@ffmpeg/core@${CORE_VERSION}/dist/umd`;
+const FFMPEG_CORE_CDN_BASE_URL = `https://cdn.jsdelivr.net/npm/@ffmpeg/core@${CORE_VERSION}/dist/esm`;
 const LOG_LINE_LIMIT = 200;
 
 const SPEC_COLOR_STOPS = [
