@@ -16,6 +16,8 @@ and this project follows [Semantic Versioning](https://semver.org/).
 
 ### Changed
 
+- CI now tests the supported Node.js 22 floor, tracks dependency updates, and
+  publishes OpenSSF Scorecard results.
 - Package metadata now declares MIT licensing and public package intent.
 - Product surfaces now use the AVSync brand with search-friendly audio-video
   sync metadata.

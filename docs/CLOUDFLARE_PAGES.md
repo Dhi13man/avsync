@@ -23,7 +23,7 @@ Use these settings for the Cloudflare Pages project:
 | Production branch | `main` |
 | Build command | `npm run check` |
 | Build output directory | `public` |
-| Node.js version | `18` or later |
+| Node.js version | `22` |
 
 The app is static. The build command validates JavaScript and markdown, and
 Cloudflare publishes the files already present in `public/`.

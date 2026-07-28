@@ -1,8 +1,8 @@
 blank_issues_enabled: false
 contact_links:
   - name: Support and usage questions
-    url: https://github.com/Dhi13man/audio-video-sync-lab/discussions
+    url: https://github.com/Dhi13man/avsync/discussions
     about: Ask open-ended questions or discuss workflow ideas.
   - name: Security report
-    url: https://github.com/Dhi13man/audio-video-sync-lab/security/policy
+    url: https://github.com/Dhi13man/avsync/security/advisories/new
     about: Report vulnerabilities privately.

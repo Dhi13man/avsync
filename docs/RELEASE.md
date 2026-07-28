@@ -4,7 +4,7 @@ This checklist keeps releases repeatable while the project is small.
 
 ## Prerequisites
 
-- Node.js 18 or later.
+- Node.js 22 or later.
 - A clean git working tree.
 - Permission to push tags and create GitHub releases.
 
