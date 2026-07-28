@@ -4,7 +4,8 @@
 > previewing the result, and exporting a synced MP4 locally.
 
 [![CI](https://github.com/Dhi13man/avsync/actions/workflows/ci.yml/badge.svg)](https://github.com/Dhi13man/avsync/actions/workflows/ci.yml)
-[![Node](https://img.shields.io/badge/node-%3E%3D18-339933?logo=node.js&logoColor=white)](https://nodejs.org)
+[![OpenSSF Scorecard](https://api.securityscorecards.dev/projects/github.com/Dhi13man/avsync/badge)](https://securityscorecards.dev/viewer/?uri=github.com/Dhi13man/avsync)
+[![Node](https://img.shields.io/badge/node-%3E%3D22-339933?logo=node.js&logoColor=white)](https://nodejs.org)
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
 [![Code of Conduct](https://img.shields.io/badge/code%20of%20conduct-active-purple)](CODE_OF_CONDUCT.md)
@@ -42,7 +43,7 @@ Screenshots use generated sample media; no user files are included in the repo.
 
 ## Prerequisites
 
-- Node.js 18 or later.
+- Node.js 22 or later.
 - A recent Chromium, Firefox, or Safari build with WebAudio, Canvas2D, Web
   Worker, and WebAssembly support.
 - Network access to jsDelivr when FFmpeg WASM assets are first loaded.
