@@ -14,8 +14,8 @@ versions when practical.
 
 Do not open a public issue for security-sensitive reports.
 
-Use GitHub private vulnerability reporting if it is enabled for the repository.
-If it is not enabled, contact the maintainer privately through the GitHub
+Use [GitHub private vulnerability reporting](https://github.com/Dhi13man/avsync/security/advisories/new).
+If it is unavailable, contact the maintainer privately through the GitHub
 repository owner profile and include:
 
 - Affected version, commit, or hosted URL.
